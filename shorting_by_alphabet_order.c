@@ -30,35 +30,19 @@ int main()
         min = INT_MAX;
         index = 0;
     }
-    int index1;
-    // for remove space we need to know how many index carry space;
-    if (array[0] != ' ')
-    {
-        index1 = -1;
-    }
-    else
-    {
-        index1 = 0;
-    }
-    // for remove space we need to know the last index which carry space;
-    for (int i = 0; i < len; i++)
-    {
-        if (array[i] == ' ')
-        {
-            index1 = i;
-        }
-    }
     char str1[1000];
     int j;
-    for (int i = index1 + 1, j = 0; i < len; i++, j++)
+    int i = 0;
+    char str2[1000];
+    for (int j = 0; j < len; j++)
     {
-        str1[j] = array[i];
-        // ASCII to char and store a singel char one by one on the 2nd string array str1;
+        if (array[j] > 32)
+        {
+            str2[i] = array[j]; // ASCII to char;
+            i++;
+        }
     }
-    for (int i = 0; i < len - (index1 + 1); i++)
-    {
-        printf("%c", str1[i]);//print char one by one;
-    }
-    printf("\n");
+    str2[i] = '\0';
+    puts(str2);
     return 0;
 }
